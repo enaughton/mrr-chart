@@ -2,7 +2,7 @@
   <h1>Mom, my business is fine</h1>
   <div>
     <h2 style="text-align: center; margin-bottom: 24px">
-      MMR (Monthly Recurring Revenue):
+      MRR (Monthly Recurring Revenue):
       <span class="flex">${{ totalAmount.toLocaleString() }} </span>
     </h2>
     <button
@@ -72,9 +72,9 @@ let debounceTimeout = null;
 
 function generateRandomChart() {
   const dataArr = [];
-  let mrr = 1000;
+  let mrr = 10000;
   for (let i = 0; i < months; i++) {
-    mrr += Math.floor(Math.random() * 10001);
+    mrr += Math.floor(Math.random() * 20001);
     dataArr.push(mrr);
   }
   totalAmount.value = dataArr.length ? dataArr[dataArr.length - 1] : 0;
