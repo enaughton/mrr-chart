@@ -1,12 +1,44 @@
 <template>
   <h1>Mom, my business is fine</h1>
   <div>
-    <h2 style="color: white; text-align: center; margin-bottom: 24px">
+    <h2 style="text-align: center; margin-bottom: 24px">
       MMR (Monthly Recurring Revenue):
       <span class="flex">${{ totalAmount.toLocaleString() }} </span>
     </h2>
-    <button @click="debouncedGenerateChart">Generate Chart</button>
-    <canvas ref="canvasRef" width="900" height="500"></canvas>
+    <button
+      style="
+        color: #fff;
+        background: #42b983;
+        border: none;
+        border-radius: 8px;
+        padding: 12px 18px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: background 0.2s;
+        width: 100%;
+        max-width: 320px;
+        margin: 16px auto;
+        display: block;
+        box-sizing: border-box;
+      "
+      @click="debouncedGenerateChart"
+    >
+      Generate Chart
+    </button>
+    <canvas
+      ref="canvasRef"
+      style="
+        width: 100%;
+        max-width: 100vw;
+        height: 220px;
+        box-sizing: border-box;
+        display: block;
+        margin: 0 auto;
+      "
+      width="900"
+      height="220"
+    ></canvas>
   </div>
 </template>
 
@@ -20,11 +52,8 @@ import {
   LinearScale,
   Title,
   CategoryScale,
-  Tooltip,
-  Legend,
   Filler,
 } from "chart.js";
-
 Chart.register(
   LineController,
   LineElement,
@@ -32,11 +61,8 @@ Chart.register(
   LinearScale,
   Title,
   CategoryScale,
-  Tooltip,
-  Legend,
   Filler
 );
-
 const canvasRef = ref(null);
 const chartInstance = ref(null);
 const months = 12;
@@ -87,7 +113,8 @@ function renderChart(dataArr) {
           data: dataArr,
           borderColor: "rgba(75, 192, 192, 1)",
           backgroundColor: "rgba(75, 192, 192, 0.6)",
-          fill: true,
+          fill: "origin",
+          backgroundColor: "rgba(75, 192, 192, 0.3)",
           tension: 0.4,
         },
       ],
