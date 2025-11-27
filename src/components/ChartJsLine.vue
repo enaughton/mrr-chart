@@ -46,9 +46,9 @@ let debounceTimeout = null;
 
 function generateRandomChart() {
   const dataArr = [];
-  let mrr = 100;
+  let mrr = 1000;
   for (let i = 0; i < months; i++) {
-    mrr += Math.floor(Math.random() * 5001);
+    mrr += Math.floor(Math.random() * 10001);
     dataArr.push(mrr);
   }
   totalAmount.value = dataArr.length ? dataArr[dataArr.length - 1] : 0;
